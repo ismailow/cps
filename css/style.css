@@ -1,30 +1,4 @@
-@font-face {
-    font-family: "TT Lakes";
-    src: url("../fonts/TTLakes-Regular.ttf") format("ttf"),
-        url("../fonts/TTLakes-Regular.woff");
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: "TT Lakes";
-    src: url("../fonts/TTLakes-Bold.ttf") format("ttf"),
-        url("../fonts/TTLakes-Bold.woff");
-    font-weight: 700;
-}
-
-@font-face {
-    font-family: "TT Lakes";
-    src: url("../fonts/TTLakes-Medium.ttf") format("ttf"),
-        url("../fonts/TTLakes-Medium.woff");
-    font-weight: 500;
-}
-
-@font-face {
-    font-family: "TT Lakes Condensed";
-    src: url("../fonts/TTLakesCondensed-Medium.ttf") format("ttf"),
-        url("../fonts/TTLakesCondensed-Medium.woff");
-    font-weight: 500;
-}
+@import url(./fonts.css);
 
 html {
     box-sizing: border-box;
@@ -58,6 +32,11 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+.btn:hover {
+    background-color: #e11d58;
 }
 
 .burger__btn {
@@ -102,6 +81,12 @@ body {
     position: relative;
     background-color: transparent;
     border: none;
+    border-bottom: 2px solid transparent;
+    transition: all .2s ease-in;
+}
+
+.more-btn:hover {
+    border-bottom: 2px solid #1B1C21;
 }
 
 .more-btn::before {
@@ -128,8 +113,20 @@ body {
     gap: 16px;
 }
 
-[class$="__container"] {
+.contacts__item {
+    list-style: none;
+}
+
+.feedback__item {
+    list-style: none;
+}
+
+.container {
     padding: 0 16px;
+}
+
+.main {
+    background-color: #F8F8F8;
 }
 
 /* ===header=== */
@@ -145,6 +142,8 @@ body {
 
 .header__burger {
     margin-right: 16px;
+    padding: 11px;
+    display: block;
 }
 
 .header__feedback {
@@ -167,7 +166,7 @@ body {
 }
 
 /* ===Services=== */
-.services__inner {
+.services {
     padding-top: 24px;
 }
 
@@ -191,7 +190,7 @@ body {
     display: none;
 }
 
-.services__buttons {
+.services__list {
     display: flex;
     margin-right: -776px;
     width: 100%;
@@ -199,11 +198,15 @@ body {
     overflow-x: auto;
 }
 
-.services__buttons::-webkit-scrollbar {
+.services__item {
+    list-style: none;
+}
+
+.services__list::-webkit-scrollbar {
     display: none;
 }
 
-.services__buttons::after {
+.services__list::after {
     content: "";
     width: 35px;
     height: 40px;
@@ -223,6 +226,7 @@ body {
     color: #7E7E82;
     white-space: nowrap;
     cursor: pointer;
+    display: block;
 }
 
 .services__btn--active {
@@ -261,7 +265,7 @@ body {
 }
 
 @media (min-width: 768px) {
-    [class$="__container"] {
+    .container {
         padding: 0 24px;
     }
 
@@ -316,7 +320,7 @@ body {
 }
 
 @media (min-width: 1140px) {
-    [class$="__container"] {
+    .container {
         width: 1140px;
         padding: 0 20px;
         margin: 0 auto;
@@ -335,7 +339,7 @@ body {
         align-items: flex-start;
     }
 
-    .services__buttons::after {
+    .services__list::after {
         display: none;
     }
 
@@ -357,18 +361,25 @@ body {
         display: flex;
         align-items: center;
         gap: 8px;
+        list-style: none;
     }
 
-    .feedback__link {
+    .feedback__btn {
+        display: flex;
+        gap: 16px;
+    }
+
+    .feedback__text {
         font-size: 16px;
         color: #1B1C21;
         text-decoration: none;
         font-weight: 500;
         border-bottom: 2px solid transparent;
+        cursor: pointer;
         transition: all .3s ease-in;
     }
 
-    .feedback__link:hover {
+    .feedback__text:hover {
         border-bottom: 2px solid #1B1C21;
     }
 }
